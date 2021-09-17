@@ -1,0 +1,14 @@
+load("@npm//@bazel/typescript:index.bzl", "ts_project")
+
+ts_project(
+    # Experimental: Start a tsc daemon to watch for changes to make recompiles faster.
+    name = "src",
+    tsconfig = "//:tsconfig.json",
+    srcs = [
+        "test.ts"
+    ],
+    deps = [
+        "@npm//underscore"
+    ],
+    supports_workers = True,
+)
